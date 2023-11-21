@@ -1,7 +1,16 @@
+import Header from "@/components/header/Header";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p>Nextjs project</p>
+    <main>
+      <div className='main'>
+        <div className='gradient' />
+      </div>
+
+      <div className='app'>
+        <Header />
+        {/* <Demo /> */}
+      </div>
     </main>
   )
 }
