@@ -6,7 +6,7 @@ export const store = configureStore({
     reducer: {
         [articleApi.reducerPath]: articleApi.reducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(articleApi.middleware, logger),
 })
 
 export type RootState = ReturnType<typeof store.getState>

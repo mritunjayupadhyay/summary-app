@@ -1,5 +1,4 @@
-import BrowserHistory from "@/components/BrowserHistory";
-import DisplayResult from "@/components/DisplayResult";
+"use client"
 import Form from "@/components/Form";
 import Header from "@/components/header/Header";
 import { store } from "@/store";
@@ -18,8 +17,6 @@ export default function Home() {
         <section className='mt-16 w-full max-w-xl'>
           <div className='flex flex-col w-full gap-2'>
           <Form />
-          <BrowserHistory />
-          <DisplayResult />
           </div>
           
         </section>

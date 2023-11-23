@@ -1,15 +1,17 @@
 "use client"
-import React, { useState } from 'react'
-import { Article } from './BrowserHistory';
-
-const article: Article = {
-    url: '',
-    summary: ''
-}
+import React, { useEffect, useState } from 'react'
+import { useLazyGetSummaryQuery } from '@/store/article/article.service';
+import { useSelector } from 'react-redux';
 
 function DisplayResult() {
-    const [isFetching, setFetching] = useState("");
-    const error = {data: {error: ""}};
+    const [getSummary, { error, isFetching = true}] = useLazyGetSummaryQuery()
+    const summary = useSelector((state: any) => state.article.summary);
+    // const [isFetching, setFetching] = useState("");
+    // const error = {data: {error: ""}};
+    console.log("DisplayResult", new Date(), error, isFetching);
+    useEffect(() => {
+        console.log("DisplayResult: isFetching", isFetching);
+    }, [isFetching])
   return (
     <div className='my-10 max-w-full flex justify-center items-center'>
         {isFetching ? (
@@ -19,18 +21,18 @@ function DisplayResult() {
             Well, that wasn't supposed to happen...
             <br />
             <span className='font-satoshi font-normal text-gray-700'>
-              {error?.data?.error}
+              {'error'}
             </span>
           </p>
         ) : (
-          article.summary && (
+          summary && (
             <div className='flex flex-col gap-3'>
               <h2 className='font-satoshi font-bold text-gray-600 text-xl'>
                 Article <span className='blue_gradient'>Summary</span>
               </h2>
               <div className='summary_box'>
                 <p className='font-inter font-medium text-sm text-gray-700'>
-                  {article.summary}
+                  {summary}
                 </p>
               </div>
             </div>
