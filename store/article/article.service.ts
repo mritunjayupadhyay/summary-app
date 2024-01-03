@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+export const runtime = 'edge';
 
 export const articleApi = createApi({
     reducerPath: 'articleApi',

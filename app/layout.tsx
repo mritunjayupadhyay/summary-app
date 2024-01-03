@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: 'Summary App',
     description: 'A summary app built with Next.js',
 }
+export const runtime = 'edge';
 
 export default function RootLayout({
     children,
